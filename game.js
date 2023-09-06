@@ -16,7 +16,7 @@ $(document).on("keypress", function(){
 })
 
 
-$(document).on("touchstart", function(){
+$(document).on("ontouchstart", function(){
     if(started === false){
     
         $('#level-title').text("Level 0");
@@ -111,3 +111,9 @@ function animation(random){
 
     playSound(random);
 }
+
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0));
+  }
