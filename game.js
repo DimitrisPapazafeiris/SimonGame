@@ -16,6 +16,17 @@ $(document).on("keypress", function(){
 })
 
 
+$(document).on("touchstart", function(){
+    if(started === false){
+    
+        $('#level-title').text("Level 0");
+        nextSequence();
+    }
+    started = true;
+    
+})
+
+
 $(".btn").on("click", function(){
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
