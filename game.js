@@ -15,8 +15,7 @@ $(document).on("keypress", function(){
     started = true;
 })
 
-if( isTouchDevice() ){
-    $(document).on("ontouchstart", function(){
+if( isTouchDevice() ){  
     if(started === false){
     
         $('#level-title').text("Level 0");
@@ -24,7 +23,6 @@ if( isTouchDevice() ){
     }
     started = true;
     
-})
 }
 
 
