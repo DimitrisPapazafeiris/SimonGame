@@ -15,6 +15,15 @@ $(document).on("keypress", function(){
     started = true;
 })
 
+$(document).on("touchend", function(){
+    if(started === false){
+    
+        $('#level-title').text("Level 0");
+        nextSequence();
+    }
+    started = true;
+})
+
 $(".btn").on("click", function(){
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
@@ -98,4 +107,29 @@ function animation(random){
     button.fadeIn(100).fadeOut(100).fadeIn(100);
 
     playSound(random);
+}
+
+
+$(document).on("touchstart", touch2Mouse, true);
+$(document).on("touchmove", touch2Mouse, true);
+$(document).on("touchend", touch2Mouse, true);
+
+function touch2Mouse(e)
+{
+  var theTouch = e.changedTouches[0];
+  var mouseEv;
+
+  switch(e.type)
+  {
+    case "touchstart": mouseEv="mousedown"; break;  
+    case "touchend":   mouseEv="mouseup"; break;
+    case "touchmove":  mouseEv="mousemove"; break;
+    default: return;
+  }
+
+  var mouseEvent = document.createEvent("MouseEvent");
+  mouseEvent.initMouseEvent(mouseEv, true, true, window, 1, theTouch.screenX, theTouch.screenY, theTouch.clientX, theTouch.clientY, false, false, false, false, 0, null);
+  theTouch.target.dispatchEvent(mouseEvent);
+
+  e.preventDefault();
 }
