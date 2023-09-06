@@ -15,8 +15,8 @@ $(document).on("keypress", function(){
     started = true;
 })
 
-
-$(document).on("ontouchstart", function(){
+if( is_touch_enabled() ){
+    $(document).on("ontouchstart", function(){
     if(started === false){
     
         $('#level-title').text("Level 0");
@@ -25,6 +25,8 @@ $(document).on("ontouchstart", function(){
     started = true;
     
 })
+}
+
 
 
 $(".btn").on("click", function(){
