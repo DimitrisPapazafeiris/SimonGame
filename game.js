@@ -15,18 +15,6 @@ $(document).on("keypress", function(){
     started = true;
 })
 
-if( isTouchDevice() ){  
-    if(started === false){
-    
-        $('#level-title').text("Level 0");
-        nextSequence();
-    }
-    started = true;
-    
-}
-
-
-
 $(".btn").on("click", function(){
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
@@ -111,9 +99,3 @@ function animation(random){
 
     playSound(random);
 }
-
-function isTouchDevice() {
-    return (('ontouchstart' in window) ||
-       (navigator.maxTouchPoints > 0) ||
-       (navigator.msMaxTouchPoints > 0));
-  }
