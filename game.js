@@ -15,7 +15,7 @@ $(document).on("keypress", function(){
     started = true;
 })
 
-if( is_touch_enabled() ){
+if( isTouchDevice() ){
     $(document).on("ontouchstart", function(){
     if(started === false){
     
